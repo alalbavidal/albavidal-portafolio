@@ -2,61 +2,308 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="Portfolio profesional de Alba Vidal - Desarrolladora Fullstack especializada en Angular, Spring Boot y PostgreSQL">
+  <meta name="keywords" content="Fullstack Developer, Angular, Spring Boot, PostgreSQL, Java, TypeScript">
+  <meta name="author" content="Alba Vidal">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Alba Vidal</title>
+  
+  <title>Alba Vidal | Fullstack Developer</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-<header>
-  <h1>Alba Vidal</h1>
-  <p>Fullstack Developer Junior</p>
-</header>
-
-<nav>
-  <a href="#about">Sobre mí</a>
-  <a href="#projects">Proyectos</a>
-  <a href="#contact">Contacto</a>
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo">AV</div>
+    <button class="nav-toggle" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#about"><i class="fas fa-user"></i> Sobre mí</a>
+      <a href="#skills"><i class="fas fa-code"></i> Habilidades</a>
+      <a href="#projects"><i class="fas fa-folder-open"></i> Proyectos</a>
+      <a href="#contact"><i class="fas fa-envelope"></i> Contacto</a>
+    </div>
+  </div>
 </nav>
 
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-terminal"></i> Disponible para trabajar
+    </div>
+    <h1>Alba Vidal</h1>
+    <p class="subtitle">Fullstack Developer Junior | Angular • Spring Boot • PostgreSQL</p>
+    <p class="hero-description">Construyendo aplicaciones web robustas con pasión por el código limpio</p>
+    
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">
+        <i class="fas fa-arrow-down"></i> Ver proyectos
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <i class="fas fa-paper-plane"></i> Contactar
+      </a>
+    </div>
+  </div>
+  
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-number">3+</span>
+      <span class="stat-label">Proyectos completados</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">5+</span>
+      <span class="stat-label">Tecnologías dominadas</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">100%</span>
+      <span class="stat-label">Enfoque autodidacta</span>
+    </div>
+  </div>
+</header>
+
 <section id="about">
-  <h2>Sobre mí</h2>
-  <p>
-    Desarrolladora Fullstack Junior especializada en Angular y Spring Boot.
-    He desarrollado de forma autodidacta una aplicación completa de alquiler de bicicletas con arquitectura API REST.
-  </p>
+  <div class="section-header">
+    <h2>Sobre mí</h2>
+    <p>Conoce más sobre mi trayectoria y pasión por el desarrollo</p>
+  </div>
+  
+  <div class="about-content">
+    <div class="about-text">
+      <p>
+        Soy desarrolladora Fullstack con una fuerte orientación al detalle y a las buenas prácticas. 
+        Aunque me considero junior, he demostrado mi capacidad para construir aplicaciones completas 
+        desde cero, resolviendo problemas reales con soluciones técnicas sólidas.
+      </p>
+      
+      <p>
+        Mi proyecto estrella es un <strong>sistema completo de alquiler de bicicletas</strong> con:
+        <span class="highlight">gestión de clientes, reservas, generación de contratos y envío automático de emails</span>.
+        Esta experiencia me ha enseñado la importancia de una arquitectura limpia y la comunicación efectiva entre frontend y backend.
+      </p>
+      
+      <p>
+        Actualmente busco una oportunidad profesional donde pueda seguir creciendo, 
+        aportar valor y aprender de desarrolladores con más experiencia.
+      </p>
+      
+      <div class="about-tags">
+        <span class="tag">🌍 Trabajo remoto</span>
+        <span class="tag">🚀 Disponibilidad inmediata</span>
+        <span class="tag">📚 Aprendizaje continuo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-header">
+    <h2>Habilidades técnicas</h2>
+    <p>Tecnologías que domino y utilizo diariamente</p>
+  </div>
+  
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3><i class="fas fa-code"></i> Frontend</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>Angular</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>TypeScript</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>HTML5/CSS3</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>RxJS</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3><i class="fas fa-server"></i> Backend</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>Spring Boot</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Java</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>API REST</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>JPA/Hibernate</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3><i class="fas fa-database"></i> Bases de datos</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>PostgreSQL</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>MySQL</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Flyway</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="skill-category">
+      <h3><i class="fas fa-tools"></i> Herramientas</h3>
+      <div class="skill-items">
+        <div class="skill-item">
+          <span>Git/GitHub</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Postman</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>VS Code/IntelliJ</span>
+          <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="projects">
-  <h2>Proyectos</h2>
-
-  <div class="project-card">
-    <h3>Sistema de alquiler de bicicletas</h3>
-    <p>
-      Aplicación fullstack con Angular + Spring Boot + PostgreSQL.
-      Incluye reservas, gestión de clientes, contratos PDF y envío de emails.
-    </p>
-
-    <a href="https://github.com/alalbavidal/proyecto_app_alquiler_bicicletas.git" target="_blank">
-      Ver en GitHub
-    </a>
+  <div class="section-header">
+    <h2>Proyectos destacados</h2>
+    <p>Mis trabajos más recientes y relevantes</p>
   </div>
 
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-icon">
+        <i class="fas fa-bicycle"></i>
+      </div>
+      <h3>Sistema de alquiler de bicicletas</h3>
+      
+      <p>
+        Aplicación fullstack completa para gestión de alquiler de bicicletas con 
+        sistema de reservas, generación de contratos PDF y notificaciones automáticas.
+      </p>
+      
+      <div class="tech-stack">
+        <span class="tech-tag">Angular</span>
+        <span class="tech-tag">Spring Boot</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Flyway</span>
+        <span class="tech-tag">API REST</span>
+        <span class="tech-tag">JavaMail</span>
+      </div>
+      
+      <div class="features-list">
+        <h4>Características principales:</h4>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> CRUD completo de clientes y bicicletas</li>
+          <li><i class="fas fa-check-circle"></i> Sistema de reservas y disponibilidad</li>
+          <li><i class="fas fa-check-circle"></i> Generación automática de contratos PDF</li>
+          <li><i class="fas fa-check-circle"></i> Envío de emails de confirmación</li>
+          <li><i class="fas fa-check-circle"></i> Autenticación y roles de usuario</li>
+        </ul>
+      </div>
+      
+      <div class="buttons">
+        <a href="https://github.com/alalbavidal/proyecto_app_alquiler_bicicletas" target="_blank" class="btn-github">
+          <i class="fab fa-github"></i> Código
+        </a>
+        <!---
+            <a href="#" class="btn-demo" target="_blank">
+              <i class="fas fa-external-link-alt"></i> Demo
+            </a>
+          -->
+      </div>
+    </div>
+    
+    <div class="project-card coming-soon">
+      <div class="project-icon">
+        <i class="fas fa-plus-circle"></i>
+      </div>
+      <h3>Próximo proyecto</h3>
+      <p>Más proyectos en desarrollo. ¡Mantente atento!</p>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
-  <h2>Contacto</h2>
-  <p>Email: amvidagalan@gmail.com</p>
-  <p>Linkedin: https://www.linkedin.com/in/alba-vidal-736817b4/ </p>
+  <div class="section-header">
+    <h2>Contacto</h2>
+    <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+  </div>
+  
+  <div class="contact-container">
+    <div class="contact-info">
+      <div class="contact-card">
+        <i class="fas fa-envelope"></i>
+        <h3>Email</h3>
+        <a href="mailto:amvidagalan@gmail.com">amvidagalan@gmail.com</a>
+      </div>
+      
+      <div class="contact-card">
+        <i class="fab fa-linkedin"></i>
+        <h3>LinkedIn</h3>
+        <a href="https://www.linkedin.com/in/alba-vidal-736817b4" target="_blank">
+          Perfil profesional
+        </a>
+      </div>
+      
+      <div class="contact-card">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <a href="https://github.com/alalbavidal" target="_blank">
+          @alalbavidal
+        </a>
+      </div>
+    </div>
+    
+    <form class="contact-form" id="contactForm" novalidate>
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu email" required>
+      <textarea name="mensaje" rows="5" placeholder="Tu mensaje..." required></textarea>
+      <button type="submit" class="btn-submit">
+        <i class="fas fa-paper-plane"></i> Enviar mensaje
+      </button>
+    </form>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Alba Vidal</p>
+  <div class="footer-content">
+    <p>© <span id="footer-year"></span> Alba Vidal | Fullstack Developer</p>
+    <p class="footer-quote">"El código limpio es una forma de arte"</p>
+    <div class="footer-social">
+      <a href="https://github.com/alalbavidal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/alba-vidal-736817b4" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:amvidagalan@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
