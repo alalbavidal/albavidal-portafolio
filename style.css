@@ -790,3 +790,87 @@ footer {
   line-height: 1.8;
   margin-bottom: 1.75rem;
 }
+
+
+.project-card.enterprise {
+  border-left: 5px solid var(--primary-blue);
+  padding: 2.5rem;
+}
+
+.project-header {
+  margin-bottom: 1.5rem;
+}
+
+.project-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-status {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.7rem;
+  background: var(--bg-alt);
+  color: var(--primary-purple);
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.project-role {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+.project-section {
+  margin-bottom: 1.2rem;
+}
+
+.project-section h4 {
+  font-size: 0.95rem;
+  color: var(--primary-purple);
+  margin-bottom: 0.4rem;
+}
+
+.project-section p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.project-metrics {
+  list-style: none;
+  padding: 0;
+}
+
+.project-metrics li {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-demo {
+  background: var(--primary-blue);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 50px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.btn-demo:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
