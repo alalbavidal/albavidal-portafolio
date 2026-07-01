@@ -117,3 +117,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Skill bars: disparar también al hacer scroll
 window.addEventListener('scroll', animateSkillBars, { passive: true });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const canvas = document.getElementById('rainCanvas');
+  if (!canvas) return;
+
+  // En móvil lo desactivamos por rendimiento/batería
+  if (window.innerWidth < 768) return;
+
+  const ctx = canvas.getContext('2d');
+  const hero = document.querySelector('.hero');
+
+  const chars = '01{}<>/=+;#*ABCDEFabcdef';
+  const fontSize = 15;
+  const colors = ['#c2542e', '#d97a4d', '#e8a854', '#e88c6d'];
+
+  let columns, drops;
+
+  function resize() {
+    canvas.width = hero.clientWidth;
+    canvas.height = hero.clientHeight;
+    columns = Math.floor(canvas.width / fontSize);
+    drops = [];
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -40;
+    }
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(255, 250, 245, 0.12)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < columns; i++) {
+      const text = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillStyle = colors[i % colors.length];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  setInterval(draw, 60);
+});
