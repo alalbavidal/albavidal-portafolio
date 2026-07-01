@@ -83,27 +83,59 @@ if (footerYear) {
 }
 
 // ─── Formulario de contacto ───────────────────────────────────────────────────
-const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById("contactForm");
+
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const submitBtn = contactForm.querySelector('.btn-submit');
-    const originalHTML = submitBtn.innerHTML;
 
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitBtn.disabled = true;
+    contactForm.addEventListener("submit", function (e) {
 
-    // Sustituir por llamada real a tu API cuando esté disponible
-    setTimeout(() => {
-      submitBtn.innerHTML = '<i class="fas fa-check"></i> ¡Mensaje enviado!';
-      contactForm.reset();
+        e.preventDefault();
 
-      setTimeout(() => {
-        submitBtn.innerHTML = originalHTML;
-        submitBtn.disabled = false;
-      }, 3000);
-    }, 2000);
-  });
+        const submitBtn = contactForm.querySelector(".btn-submit");
+        const originalHTML = submitBtn.innerHTML;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+        emailjs.send(
+            "service_ewaihdk",
+            "template_s718cmf",
+            {
+                nombre: contactForm.nombre.value,
+                email: contactForm.email.value,
+                mensaje: contactForm.mensaje.value
+            }
+        )
+        .then(() => {
+
+            submitBtn.innerHTML =
+                '<i class="fas fa-check"></i> ¡Mensaje enviado!';
+
+            contactForm.reset();
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
+            }, 3000);
+
+        })
+        .catch((error) => {
+
+            console.error(error);
+
+            submitBtn.innerHTML =
+                '<i class="fas fa-times"></i> Error al enviar';
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalHTML;
+            }, 3000);
+
+        });
+
+    });
+
 }
 
 // ─── Inicialización ───────────────────────────────────────────────────────────
