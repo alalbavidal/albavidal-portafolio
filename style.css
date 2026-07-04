@@ -874,3 +874,15 @@ footer {
   transform: translateY(-2px);
   opacity: 0.9;
 }
+
+.btn-cv{
+    background:#fff;
+    color:var(--primary-purple);
+    border:2px solid var(--primary-blue);
+}
+
+.btn-cv:hover{
+    background:var(--gradient-sunset);
+    color:white;
+    transform:translateY(-2px);
+}
