@@ -5,9 +5,9 @@
 
 :root {
   /* Colores principales (nombres conservados para compatibilidad con el HTML) */
-  --primary-blue: #d97a4d;       /* coral/terracota — antes azul */
+  --primary-blue: #a84c23;       /* coral/terracota — antes azul */
   --primary-purple: #c2542e;     /* terracota profundo — antes morado */
-  --accent-gold: #e8a854;        /* dorado cálido de acento */
+  --accent-gold: #9c6300  ;      /* dorado cálido de acento */
   --accent-rose: #e88c6d;        /* rosa-coral suave */
 
   /* Fondos */
@@ -557,9 +557,9 @@ section {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  outline: none;
+
   border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(217, 122, 77, 0.12);
+  box-shadow:0 0 0 3px rgba(168,76,35,.20);
 }
 
 .contact-form textarea { resize: vertical; }
@@ -885,4 +885,139 @@ footer {
     background:var(--gradient-sunset);
     color:white;
     transform:translateY(-2px);
+}
+
+
+/* ============ WCAG 2.4.7 ============ */
+
+.sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+
+    outline:3px solid var(--primary-purple);
+    outline-offset:3px;
+
+}
+
+
+@media (prefers-reduced-motion: reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+        transition:none !important;
+
+    }
+
+    #rainCanvas,
+    .cursor-dot,
+    .cursor-ring{
+
+        display:none !important;
+
+    }
+
+    .skill-progress{
+
+        transition:none;
+
+    }
+
+}
+
+
+.skip-link{
+
+    position:absolute;
+    left:20px;
+    top:-60px;
+
+    background:white;
+    color:var(--text-primary);
+
+    padding:.8rem 1.2rem;
+
+    border-radius:8px;
+
+    z-index:9999;
+
+    border:2px solid var(--primary-purple);
+
+}
+
+.skip-link:focus{
+
+    top:20px;
+
+}
+
+.project-card:focus-within,
+.skill-category:focus-within,
+.contact-card:focus-within{
+
+    outline:2px solid var(--primary-purple);
+    outline-offset:4px;
+
+}
+
+
+/* ============ Botón de la animación ============ */
+
+.animation-toggle{
+
+    position:absolute;
+    top:1rem;
+    right:1rem;
+
+    z-index:2;
+
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+
+    padding:.6rem 1rem;
+
+    border:none;
+    border-radius:999px;
+
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(6px);
+
+    color:var(--text-primary);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.animation-toggle:hover{
+
+    background:white;
+
+}
+
+.animation-toggle:focus-visible{
+
+    outline:3px solid var(--primary-purple);
+
 }

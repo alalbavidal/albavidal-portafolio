@@ -17,28 +17,63 @@
 
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">AV</div>
-    <button class="nav-toggle" aria-label="Abrir menú">
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="nav-links">
-      <a href="#about"><i class="fas fa-user"></i> Sobre mí</a>
-      <a href="#value"><i class="fas fa-heart"></i> Mi valor</a>
-      <a href="#skills"><i class="fas fa-code"></i> Habilidades</a>
-      <a href="#projects"><i class="fas fa-folder-open"></i> Proyectos</a>
-      <a href="#contact"><i class="fas fa-envelope"></i> Contacto</a>
-    </div>
-  </div>
-</nav>
+  <a class="skip-link" href="#main-content">
+    Saltar al contenido principal
+  </a>
 
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" aria-label="Ir al inicio">
+          AV
+      </a>
+
+      
+              <button
+                  class="nav-toggle"
+                  aria-label="Abrir menú"
+                  aria-expanded="false"
+                  aria-controls="menu-principal">
+                  <i class="fas fa-bars"></i>
+              </button>
+              <div class="nav-links" id="menu-principal"> 
+
+      <div class="nav-links">
+        <a href="#about"><i class="fas fa-user" aria-hidden="true"></i> Sobre mí</a>
+        <a href="#value"><i class="fas fa-heart " aria-hidden="true"></i> Mi valor</a>
+        <a href="#skills"><i class="fas fa-code"aria-hidden="true"></i> Habilidades</a>
+        <a href="#projects"><i class="fas fa-folder-open"aria-hidden="true"></i> Proyectos</a>
+        <a href="#contact"><i class="fas fa-envelope"aria-hidden="true"></i> Contacto</a>
+      </div>
+    </div>
+</nav>
+<main id="main-content">
 <header class="hero">
-  <canvas id="rainCanvas"></canvas>
+        <canvas
+            id="rainCanvas"
+            aria-hidden="true">
+      </canvas>
+
+          <button
+                id="toggleAnimation"
+                class="animation-toggle"
+                type="button"
+                aria-pressed="true"
+                aria-label="Pausar animación de fondo">
+
+                <i id="toggleAnimationIcon"
+                  class="fas fa-pause"
+                  aria-hidden="true"></i>
+
+                <span id="toggleAnimationText">
+                    Pausar animación
+                </span>
+
+          </button>
+
   <div class="hero-content">
 
     <div class="hero-badge">
-      <i class="fas fa-terminal"></i> Disponible para trabajar
+      <i class="fas fa-terminal" aria-hidden="true"></i> Disponible para trabajar
     </div>
     <h1>Alba Vidal</h1>
     <p class="subtitle">Fullstack Developer Junior | Angular • Spring Boot • PostgreSQL</p>
@@ -46,18 +81,18 @@
     
     <div class="hero-buttons">
       <a href="#projects" class="btn btn-primary">
-        <i class="fas fa-arrow-down"></i> Ver proyectos
+        <i class="fas fa-arrow-down" aria-hidden="true"></i> Ver proyectos
       </a>
-      <a href="#contact" class="btn btn-secondary">
-        <i class="fas fa-paper-plane"></i> Contactar
+      <a href="#contact" class="btn btn-secondary" aria-hidden="true">
+        <i class="fas fa-paper-plane" aria-hidden="true"></i> Contactar
       </a>
 
-      <a href="assets\CV_AlbaM_VG .pdf" 
+      <a href="assets\CV_AlbaM_VG.pdf" 
           target="_blank"
           rel="noopener noreferrer"
           class="btn btn-cv"
           download="CV_Alba_Vidal.pdf">
-          <i class="fas fa-file-pdf"></i>
+          <i class="fas fa-file-pdf" aria-hidden="true"></i>
            Descargar CV
       </a>
     </div>
@@ -92,7 +127,7 @@
   <div class="about-content">
   <div class="about-text">
 
-    <p>
+    <p class="about-intro">
       Llegué al desarrollo web por curiosidad y me quedé por convicción. Cuando desarrollo una aplicación no pienso únicamente en que funcione, sino en que tenga sentido para la persona que la utiliza.
     </p>
 
@@ -100,12 +135,29 @@
       Me hago algunas preguntas clave durante el proceso:
     </p>
 
-    <div class="about-questions">
-      <p>¿Será intuitiva?</p>
-      <p>¿La entenderá alguien que nunca la ha usado?</p>
-      <p>¿Qué ocurre si el usuario comete un error?</p>
-      <p>¿Cómo puedo reducir la frustración y mejorar la experiencia?</p>
-    </div>
+      <div class="about-questions">
+
+          <p>
+          <i class="fas fa-circle-check" aria-hidden="true"></i>
+          ¿Será intuitiva?
+          </p>
+
+          <p>
+          <i class="fas fa-circle-check" aria-hidden="true"></i>
+          ¿La entenderá alguien que nunca la ha usado?
+          </p>
+
+          <p>
+          <i class="fas fa-circle-check" aria-hidden="true"></i>
+          ¿Qué ocurre si el usuario comete un error?
+          </p>
+
+          <p>
+          <i class="fas fa-circle-check" aria-hidden="true"></i>
+          ¿Cómo puedo reducir la frustración y mejorar la experiencia?
+          </p>
+
+      </div>
 
     <p>
       Mi formación en <strong>Antropología</strong> me enseñó a observar las necesidades humanas; el código me dio las herramientas para transformarlas en soluciones reales.
@@ -126,7 +178,7 @@
       Esta experiencia me ha enseñado que la tecnología, cuando se hace con empatía, no solo funciona mejor, sino que también tiene impacto real.
     </p>
 
-    <p>
+   <p class="about-closing">
       Busco un entorno donde pueda seguir aprendiendo, aportar mi visión y demostrar que el código bien hecho, con una mirada humana, es una herramienta poderosa.
     </p>
 
@@ -152,19 +204,19 @@
   <div class="about-content" style="border-color: var(--primary-purple);">
     <div class="about-text">
       <p>
-        <i class="fas fa-star" style="color: var(--primary-blue); margin-right: 0.5rem;"></i>
+        <i class="fas fa-star" aria-hidden="true" style="color: var(--primary-blue); margin-right: 0.5rem;"></i>
         <strong>Enfoque humano y capacidad de comunicación:</strong> 
         Mi formación en Antropología y mi experiencia en atención al cliente me han dado una sensibilidad especial para entender las necesidades de los usuarios y traducirlas en soluciones técnicas. Sé escuchar, explicar y conectar con equipos diversos.
       </p>
       
       <p>
-        <i class="fas fa-users" style="color: var(--primary-blue); margin-right: 0.5rem;"></i>
+        <i class="fas fa-users" aria-hidden="true" style="color: var(--primary-blue); margin-right: 0.5rem; "></i>
         <strong>Liderazgo y trabajo en equipo:</strong> 
         He dirigido un equipo de 4 personas en mi TFG, coordinando tareas, resolviendo conflictos y asegurando la entrega de un proyecto complejo con éxito. Sé lo que es ponerse en el lugar del otro y sacar lo mejor de cada persona.
       </p>
       
       <p>
-        <i class="fas fa-shield-alt" style="color: var(--primary-blue); margin-right: 0.5rem;"></i>
+        <i class="fas fa-shield-alt" aria-hidden="true" style="color: var(--primary-blue); margin-right: 0.5rem;"></i>
         <strong>Resiliencia y mirada inclusiva:</strong> 
         Cuento con un <strong>certificado de discapacidad del 33%</strong>, una experiencia que me ha enseñado a afrontar desafíos desde otra perspectiva. Aporto una visión que valora la diversidad como motor de innovación y una determinación que convierte los obstáculos en oportunidades.
       </p>
@@ -181,7 +233,7 @@
   
   <div class="skills-grid">
     <div class="skill-category">
-      <h3><i class="fas fa-code"></i> Frontend</h3>
+      <h3><i class="fas fa-code" aria-hidden="true"></i> Frontend</h3>
       <div class="skill-items">
         <div class="skill-item">
           <span>Angular</span>
@@ -203,7 +255,7 @@
     </div>
     
     <div class="skill-category">
-      <h3><i class="fas fa-server"></i> Backend</h3>
+      <h3><i class="fas fa-server" aria-hidden="true"></i> Backend</h3>
       <div class="skill-items">
         <div class="skill-item">
           <span>Spring Boot</span>
@@ -225,7 +277,7 @@
     </div>
     
     <div class="skill-category">
-      <h3><i class="fas fa-database"></i> Bases de datos</h3>
+      <h3><i class="fas fa-database" aria-hidden="true"></i> Bases de datos</h3>
       <div class="skill-items">
         <div class="skill-item">
           <span>PostgreSQL</span>
@@ -243,7 +295,7 @@
     </div>
     
     <div class="skill-category">
-      <h3><i class="fas fa-tools"></i> Herramientas</h3>
+      <h3><i class="fas fa-tools " aria-hidden="true"></i> Herramientas</h3>
       <div class="skill-items">
         <div class="skill-item">
           <span>Git/GitHub</span>
@@ -261,7 +313,7 @@
     </div>
 
     <div class="skill-category">
-  <h3><i class="fas fa-pencil-ruler"></i> Diseño UX/UI</h3>
+  <h3><i class="fas fa-pencil-ruler" aria-hidden="true"></i> Diseño UX/UI</h3>
       <div class="skill-items">
         <div class="skill-item">
           <span>Diseño de experiencia de usuario (UX)</span>
@@ -289,7 +341,7 @@
   <div class="projects-grid">
     <div class="project-card enterprise">
       <div class="project-icon">
-        <i class="fas fa-bicycle"></i>
+        <i class="fas fa-bicycle" aria-hidden="true"></i>
       </div>
 
   <div class="project-header">
@@ -351,7 +403,8 @@
   </div>
 
   <div class="project-actions">
-     <a href="https://github.com/alalbavidal/proyecto_app_alquiler_bicicletas" target="_blank" class="btn-github">
+     <a href="https://github.com/alalbavidal/proyecto_app_alquiler_bicicletas" rel="noopener noreferrer"
+      target="_blank" class="btn-github" aria-label="Ver el código del proyecto de alquiler de bicicletas en GitHub">
       <i class="fab fa-github"></i> Código
     </a>
 
@@ -366,7 +419,7 @@
     
     <div class="project-card enterprise">
       <div class="project-icon">
-        <i class="fas fa-chalkboard-user"></i>
+        <i class="fas fa-chalkboard-user" aria-hidden="true"></i>
       </div>
 
   <div class="project-header">
@@ -448,7 +501,7 @@
   </div>
 
   <div class="project-actions">
-    <a href="https://github.com/alalbavidal/proyecto_showsync_tfg" target="_blank" class="btn-github">
+    <a href="https://github.com/alalbavidal/proyecto_showsync_tfg" target="_blank" rel="noopener noreferrer" class="btn-github">
       <i class="fab fa-github"></i> Código 
     </a>
   </div>
@@ -466,7 +519,7 @@
   <div class="contact-container">
     <div class="contact-info">
       <div class="contact-card">
-        <i class="fas fa-envelope"></i>
+        <i class="fas fa-envelope" aria-hidden="true"></i>
         <h3>Email</h3>
         <a href="mailto:amvidagalan@gmail.com">amvidagalan@gmail.com</a>
       </div>
@@ -474,7 +527,7 @@
       <div class="contact-card">
         <i class="fab fa-linkedin"></i>
         <h3>LinkedIn</h3>
-        <a href="https://www.linkedin.com/in/alba-vidal-736817b4" target="_blank">
+        <a href="https://www.linkedin.com/in/alba-vidal-736817b4" target="_blank" rel="noopener noreferrer">
           Perfil profesional
         </a>
       </div>
@@ -482,37 +535,71 @@
       <div class="contact-card">
         <i class="fab fa-github"></i>
         <h3>GitHub</h3>
-        <a href="https://github.com/alalbavidal" target="_blank">
+        <a href="https://github.com/alalbavidal" target="_blank" rel="noopener noreferrer">
           @alalbavidal
         </a>
       </div>
     </div>
     
     <form class="contact-form" id="contactForm" novalidate>
-      <input type="text" name="nombre" placeholder="Tu nombre" required>
-      <input type="email" name="email" placeholder="Tu email" required>
-      <textarea name="mensaje" rows="5" placeholder="Cuéntame tu proyecto o tu oferta..." required></textarea>
+      <label class="sr-only" for="nombre">
+        Nombre
+      </label>
+      <input
+        id="nombre"
+        type="text"
+        name="nombre"
+        placeholder="Tu nombre"
+        required>
+
+
+      <label class="sr-only" for="email">
+        Correo electrónico
+        </label>
+
+        <input
+        id="email"
+        type="email"
+        name="email"
+        placeholder="Tu email"
+        required>      
+      
+      
+      <label class="sr-only" for="mensaje">
+          Mensaje
+          </label>
+
+          <textarea
+          id="mensaje"
+          name="mensaje"
+          rows="5"
+          placeholder="Cuéntame tu proyecto..."
+          required>
+          </textarea>
+
       <button type="submit" class="btn-submit">
-        <i class="fas fa-paper-plane"></i> Enviar mensaje
+        <i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar mensaje
       </button>
     </form>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="footer-content">
     <p>© <span id="footer-year"></span> Alba Vidal | Fullstack Developer</p>
     <p class="footer-quote">"Tecnología con propósito, código con empatía"</p>
     <div class="footer-social">
-      <a href="https://github.com/alalbavidal" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/alba-vidal-736817b4" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:amvidagalan@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/alalbavidal" target="_blank" aria-label="GitHub" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/alba-vidal-736817b4" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="mailto:amvidagalan@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true" ></i></a>
     </div>
   </div>
 </footer>
 
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>

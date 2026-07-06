@@ -6,7 +6,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       navLinks.classList.remove('active');
-    }
+      navToggle?.setAttribute('aria-expanded', 'false');    }
   });
 });
 
@@ -18,10 +18,11 @@ window.addEventListener('scroll', () => {
 
 // ─── Menú hamburguesa ─────────────────────────────────────────────────────────
 const navToggle = document.querySelector('.nav-toggle');
-const navLinks  = document.querySelector('.nav-links');
+const navLinks = document.getElementById('menu-principal');
 
 navToggle?.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+    const open = navLinks.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', open);
 });
 
 // ─── Animación de skill bars ──────────────────────────────────────────────────
@@ -40,11 +41,18 @@ function animateSkillBars() {
       }, index * 100);
     }
   });
+
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.skill-progress').forEach(bar => {
+        bar.style.width = (bar.dataset.width || 70) + '%';
+    });
+    return;
+}
 }
 
 // ─── Animación de secciones al hacer scroll ───────────────────────────────────
 const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+    entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       sectionObserver.unobserve(entry.target); // Solo animar una vez
@@ -141,11 +149,16 @@ if (contactForm) {
 // ─── Inicialización ───────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   // Skill bars: primer intento tras carga
+
+  const prefersReducedMotion =
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   setTimeout(animateSkillBars, 400);
 
   // Typing effect con pequeño delay para que no solape la animación del hero
-  setTimeout(startTypingEffect, 1000);
-});
+  if (!prefersReducedMotion) {
+      setTimeout(startTypingEffect, 1000);
+  }});
 
 // Skill bars: disparar también al hacer scroll
 window.addEventListener('scroll', animateSkillBars, { passive: true });
@@ -156,15 +169,76 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // En móvil lo desactivamos por rendimiento/batería
   if (window.innerWidth < 768) return;
+  
 
   const ctx = canvas.getContext('2d');
   const hero = document.querySelector('.hero');
 
-  const chars = '01{}<>/=+;#*ABCDEFabcdef';
+  const chars = [...'01{}<>/=+;#*ABCDEFabcdef'];
   const fontSize = 15;
   const colors = ['#c2542e', '#d97a4d', '#e8a854', '#e88c6d'];
 
+  const fps = 16; // igual que tu antiguo setInterval(60)
+  const frameDuration = 1000 / fps;
+
+  
+
+
+  
+
   let columns, drops;
+  let lastTime = 0;
+  let visible = true;
+  let heroVisible = true;
+  let animationEnabled = true;
+  
+  
+  const toggleButton = document.getElementById('toggleAnimation');
+  const toggleIcon = document.getElementById('toggleAnimationIcon');
+  const toggleText = document.getElementById('toggleAnimationText');
+
+    toggleButton?.addEventListener('click', () => {
+
+    animationEnabled = !animationEnabled;
+
+    toggleButton.setAttribute('aria-pressed', String(animationEnabled));
+
+    if (animationEnabled) {
+
+        toggleIcon.classList.remove('fa-play');
+        toggleIcon.classList.add('fa-pause');
+
+        toggleText.textContent = 'Pausar animación';
+
+        toggleButton.setAttribute(
+            'aria-label',
+            'Pausar animación de fondo'
+        );
+
+    } else {
+
+        toggleIcon.classList.remove('fa-pause');
+        toggleIcon.classList.add('fa-play');
+
+        toggleText.textContent = 'Reanudar animación';
+
+        toggleButton.setAttribute(
+            'aria-label',
+            'Reanudar animación de fondo'
+        );
+
+    }
+
+});
+  
+
+  document.addEventListener("visibilitychange", () => {
+    visible = !document.hidden;
+  });
+
+
+
+  
 
   function resize() {
     canvas.width = hero.clientWidth;
@@ -183,7 +257,8 @@ document.addEventListener('DOMContentLoaded', function () {
     ctx.font = fontSize + 'px monospace';
 
     for (let i = 0; i < columns; i++) {
-      const text = chars[Math.floor(Math.random() * chars.length)];
+      
+      const text = chars[(Math.random() * chars.length) | 0];
       ctx.fillStyle = colors[i % colors.length];
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
@@ -194,9 +269,30 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  resize();
-  window.addEventListener('resize', resize);
-  setInterval(draw, 60);
+  function animate(timestamp) {
+
+  if ( animationEnabled && visible && heroVisible && timestamp - lastTime >= frameDuration) {
+    draw();
+    lastTime = timestamp - ((timestamp - lastTime) % frameDuration);
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+    resize();
+
+    const observer = new IntersectionObserver(([entry]) => {
+        heroVisible = entry.isIntersecting;
+    });
+
+    observer.observe(hero);
+
+    window.addEventListener('resize', resize);
+    
+    
+
+    requestAnimationFrame(animate);
+  
 });
 
 
