@@ -1,3 +1,8 @@
+const prefersReducedMotion =
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  
+
 // ─── Smooth scroll ───────────────────────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
@@ -150,8 +155,7 @@ if (contactForm) {
 document.addEventListener('DOMContentLoaded', () => {
   // Skill bars: primer intento tras carga
 
-  const prefersReducedMotion =
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   
   setTimeout(animateSkillBars, 400);
 
